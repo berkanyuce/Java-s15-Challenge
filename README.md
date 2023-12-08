@@ -29,7 +29,7 @@ Proje sayımız ilerledikçe proje yönetimimizi kolaylaştırmak adına projele
 * ✅En az bir tane Inheritance ilişkisi kurmalısınız.
 * ✅En az bir tane Abstract class ya da Interface tanımlayarak bunları implements/extends eden sınıflarınız olmalı.
 * ✅Projenizde polymorphism uygulamaları olmalı ve yazdığınız metodlar olabildiğince esnek çalışmalı.
-* Sisteminizde en az bir list ve bir adet set veri yapısı kullanmalısınız ve anlamlı bir problemi çözüyor olmalı.
+* ✅Sisteminizde en az bir list ve bir adet set veri yapısı kullanmalısınız ve anlamlı bir problemi çözüyor olmalı.
 * ✅Veri saklamak için mapleri kullanmalısınız.
 * Minimum 10 sınıfınız olmalı ve bunların arasındaki ilişkiyi düzgün bir şekilde tanımlamalısınız.
 
@@ -43,6 +43,6 @@ Bütün sistemi bir konsol uygulaması olarak dizayn etmelisiniz.(Scanner sını
 * ✅Sistemde var olan bir yazarın tüm kitapları listelenebilir
 * ✅Bir kullanıcı sistemde eğer kitap kütüphanede varsa ve başkası tarafından alınmadıysa bir kitabı ödünç alabilir. Bu durum yaşanırsa hangi kitabın hangi kullanıcıda olduğunun bilgisi tutulmalıdır.
 * ✅Aynı şekilde kullanıcı kitap geri teslimde edebilir.
-* Sistemden bir kitap alındığında kitabı alan kullanıcıya bir fatura kesilmelidir. Kitabı geri iade ettiğinde kullanıcıya ücreti geri iade edilmelidir.
+* ✅Sistemden bir kitap alındığında kitabı alan kullanıcıya bir fatura kesilmelidir. Kitabı geri iade ettiğinde kullanıcıya ücreti geri iade edilmelidir.
 * ✅Kullanıcıların 5 kitap limiti olmalı ve bu kitap limitine ulaştıklarında daha fazla kitap alamamalılar.  
  

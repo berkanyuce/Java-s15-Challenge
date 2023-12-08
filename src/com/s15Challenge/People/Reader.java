@@ -23,6 +23,7 @@ public class Reader extends Person implements IEvents {
         if(books.size() < 5) {
             if (book.getStatus().equals(Statuses.AVAILABLE)) {
                 addBook(book);
+                balance -= book.getPrice();
                 System.out.println(this.getName() + " has borrowed " + book.get_title() + " book...");
             } else {
                 if (book.get_owner().equals(this.getName())) {
@@ -39,6 +40,7 @@ public class Reader extends Person implements IEvents {
     }
     public void return_book(Book book) {
         if(book.get_owner().equals(super.getName())) {
+            balance += book.getPrice();
             books.remove(book);
             book.change_owner(null);
             book.updateStatus(Statuses.AVAILABLE);

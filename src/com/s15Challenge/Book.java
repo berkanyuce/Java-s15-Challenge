@@ -42,6 +42,11 @@ public class Book{
     public Categories get_category() {
         return category;
     }
+
+    public double getPrice() {
+        return price;
+    }
+
     public void change_owner(Person newOwner) {
         if(newOwner != null) {
             System.out.println("Book's owner changed to " + newOwner.getName());
@@ -54,18 +59,23 @@ public class Book{
     }
     public void updateStatus(Statuses newStatus) {
         if (owner == null || newStatus.equals(Statuses.OWNED)) {
-            System.out.println(this.get_title() + "'s status changed.");
+            System.out.println(name + "'s status changed.");
             status = newStatus;
         } else if (status.equals(Statuses.OWNED)) {
-            System.out.println(this.get_title() + "'s status changed.");
+            System.out.println(name + "'s status changed.");
             status = newStatus;
         } else {
             System.out.println("The book is currently owned and cannot be set to 'Available'.");
         }
     }
     public void updatePrice(double newPrice) {
-        System.out.println(this.get_title() + "'s price changed.");
-        price = newPrice;
+        if(owner != null) {
+            System.out.println(name + "'s price changed.");
+            price = newPrice;
+        }
+        else {
+            System.out.println(name + "'s price cannot changed. Because It is owned by a reader.");
+        }
     }
 
     @Override

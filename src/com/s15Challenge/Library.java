@@ -7,17 +7,21 @@ import com.s15Challenge.enums.Categories;
 import com.s15Challenge.enums.Statuses;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Library implements IEvents {
     private Map<String, Book> books;
-    private Map<String, Reader> readers;
-    private Map<String, Author> authors;
+    private Set<Reader> readers;
+    private Set<Author> authors;
+    private double balance;
 
     public Library() {
         this.books = new HashMap<>();
-        this.readers = new HashMap<>();
-        this.authors = new HashMap<>();
+        this.readers = new HashSet<>();
+        this.authors = new HashSet<>();
+        this.balance = 0;
     }
 
     public Map get_books() {
@@ -50,10 +54,10 @@ public class Library implements IEvents {
     }
     public void lend_book(String bookTitle, String readerName) {
         Book book = books.get(bookTitle);
-        Reader reader = readers.get(readerName);
-
+        Reader reader = findReader(readerName);
         if (book != null && reader != null && book.getStatus().equals(Statuses.AVAILABLE)) {
             reader.borrow_book(book);
+            balance -= book.getPrice();
             System.out.println(book.get_title() + "' is lent to " + reader.getName());
         } else {
             System.out.println(bookTitle + " is not available for borrowing or the reader is not found.");
@@ -62,8 +66,9 @@ public class Library implements IEvents {
     public void take_back_book(String bookTitle) {
         Book book = books.get(bookTitle);
         book.updateStatus(Statuses.AVAILABLE);
-        for (Reader reader : readers.values()) {
+        for (Reader reader : readers) {
             if (reader.getBooks().contains(book)) {
+                balance += book.getPrice();
                 reader.return_book(book);
             }
         }
@@ -91,7 +96,7 @@ public class Library implements IEvents {
     }
 
     public void add_reader(Reader reader) {
-        readers.put(reader.getName(), reader);
+        readers.add(reader);
         System.out.println(reader.getName() + " added to library");
     }
 
@@ -104,7 +109,6 @@ public class Library implements IEvents {
             System.out.println("The book is owned by " + book.get_owner() + " and can not be removed");
         }
     }
-
     public void show_books() {
         System.out.println("Books in the library:");
         for (Book book : books.values()) {
@@ -118,5 +122,14 @@ public class Library implements IEvents {
                 System.out.println(book.toString());
             }
         }
+    }
+
+    private Reader findReader(String readerName) {
+        for (Reader reader : readers) {
+            if (reader.getName().equals(readerName)) {
+                return reader;
+            }
+        }
+        return null;
     }
 }

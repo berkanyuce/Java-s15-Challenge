@@ -19,12 +19,12 @@ public class Main {
         Reader reader2 = new Reader("Mehmet Reader");
 
         // Create a book
-        Book book1 = new Book(1, author1, "Book1", 29.99, Statuses.AVAILABLE, Categories.ART, "12-10-2023");
-        Book book2 = new Book(2, author2, "Book2", 19.99, Statuses.AVAILABLE, Categories.FICTION, "15-10-2023");
-        Book book3 = new Book(3, author2, "Book3", 9.99, Statuses.AVAILABLE, Categories.HISTORY, "25-10-2023");
-        Book book4 = new Book(4, author1, "Book4", 39.99, Statuses.AVAILABLE, Categories.HISTORY, "15-10-2023");
-        Book book5 = new Book(5, author1, "Book5", 49.99, Statuses.AVAILABLE, Categories.ART, "05-11-2023");
-        Book book6 = new Book(6, author2, "Book6", 59.99, Statuses.AVAILABLE, Categories.HISTORY, "05-08-2023");
+        Book book1 = new Book(1, author1, "Book1", 10, Statuses.AVAILABLE, Categories.ART, "12-10-2023");
+        Book book2 = new Book(2, author2, "Book2", 20, Statuses.AVAILABLE, Categories.FICTION, "15-10-2023");
+        Book book3 = new Book(3, author2, "Book3", 30, Statuses.AVAILABLE, Categories.HISTORY, "25-10-2023");
+        Book book4 = new Book(4, author1, "Book4", 40, Statuses.AVAILABLE, Categories.HISTORY, "15-10-2023");
+        Book book5 = new Book(5, author1, "Book5", 50, Statuses.AVAILABLE, Categories.ART, "05-11-2023");
+        Book book6 = new Book(6, author2, "Book6", 60, Statuses.AVAILABLE, Categories.HISTORY, "05-08-2023");
 
         // Add books to library
         library.addBook(book1);
@@ -112,7 +112,7 @@ public class Main {
 
         // Update data of a book
         //library.show_book(2);
-        book2.updatePrice(199.99);
+        book2.updatePrice(200);
         //library.show_book(2);
 
         System.out.println("************************");
@@ -131,6 +131,9 @@ public class Main {
         reader1.show_books();
 
         System.out.println("************************");
+
+        System.out.println(reader1);
+
 
     }
 }
